@@ -103,7 +103,15 @@ GAME.appendChild(rock)
   // Finally, return the rock element you've created
   return rock
 }
+function start() {
+  window.addEventListener('keydown', moveDodger);
 
+  START.style.display = 'none';
+
+  gameInterval = setInterval(function() {
+    createRock(Math.floor(Math.random() *  (GAME_WIDTH - 20)));
+  }, 1000);
+}
 /**
  * End the game by clearing `gameInterval`,
  * removing all ROCKS from the DOM,
